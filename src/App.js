@@ -1,21 +1,20 @@
-import Banner from "./components/Banner";
-import BannerInverted from "./components/BannerInverted";
+import { Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Newsletter from "./components/Newsletter";
-import ProudProducts from "./components/ProudProducts";
-import TrendingSlider from "./components/TrendingSlider";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
       <NavBar></NavBar>
-      <Header></Header>
-      <ProudProducts></ProudProducts>
-      <Banner></Banner>
-      <TrendingSlider></TrendingSlider>
-      <BannerInverted></BannerInverted>
+      <Routes>
+        <Route index path="/" element={<Home />} />
+        {/* <Route path="about" element={<About />} />
+        <Route path="testimonials" element={<Testimonials />} />
+        <Route path="contact" element={<Contact />} /> */}
+      </Routes>
+
       <Newsletter></Newsletter>
       <Footer></Footer>
     </>
