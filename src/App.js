@@ -1,5 +1,6 @@
 import Banner from "./components/Banner";
 import BannerInverted from "./components/BannerInverted";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Newsletter from "./components/Newsletter";
@@ -16,6 +17,7 @@ function App() {
       <TrendingSlider></TrendingSlider>
       <BannerInverted></BannerInverted>
       <Newsletter></Newsletter>
+      <Footer></Footer>
     </>
   );
 }
