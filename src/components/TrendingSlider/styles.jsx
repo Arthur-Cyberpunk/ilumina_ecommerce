@@ -1,25 +1,25 @@
 import styled from "styled-components";
 
 export const Trending = styled.section`
-    padding-bottom: 10rem;
+  padding-bottom: 10rem;
 `;
 
 export const Title = styled.div`
-        display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 
-    h3 {
-        font-size: 2.6rem;
+  h3 {
+    font-size: 2.6rem;
     font-weight: 600;
     margin-bottom: 4.2rem !important;
-    }
+  }
 `;
 
 export const ButtonsBox = styled.div`
-        display: flex;
-    gap: .4rem;
+  display: flex;
+  gap: 0.4rem;
 
-    button {
+  button {
     color: white;
     background-color: #373737;
     padding: 1rem;
@@ -31,9 +31,7 @@ export const ButtonsBox = styled.div`
     transition: all 0.1s ease-in;
 
     button:hover {
-    background-color: black;
-}
-}
+      background-color: black;
+    }
+  }
 `;
-
-
