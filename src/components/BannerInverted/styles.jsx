@@ -5,11 +5,11 @@ export const Banner = styled.section`
 `;
 
 export const BannerContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    height: 40rem;
-    overflow: hidden;
-    flex-direction: row-reverse;
+  display: flex;
+  justify-content: space-between;
+  height: 40rem;
+  overflow: hidden;
+  flex-direction: row-reverse;
 `;
 
 export const TextSide = styled.div`
@@ -21,6 +21,14 @@ export const TextSide = styled.div`
   align-items: center;
   padding: 0 11rem;
   background-color: #e9e9e9;
+
+  @media (max-width: 750px) {
+    padding: 0 4rem;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 
   h2 {
     font-size: 2.8rem;
@@ -54,13 +62,17 @@ export const TextSide = styled.div`
 `;
 
 export const ImageSide = styled.div`
-    width: 50%;
-    text-align: end;
-    background-color: #E9E9E9;
+  width: 50%;
+  text-align: end;
+  background-color: #e9e9e9;
 
-    img {
-        width: 100%;
+  @media (max-width: 600px) {
+    display: none;
+  }
+
+  img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
-    }
+  }
 `;
