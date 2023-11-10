@@ -32,7 +32,7 @@ export const NavLinks = styled.div`
   display: flex;
   gap: 2.5rem;
 
-  @media (max-width:600px) {
+  @media (max-width: 600px) {
     display: none;
   }
 
@@ -70,7 +70,7 @@ export const IconX = styled(BsXLg)`
 `;
 
 export const MobileLinks = styled.div`
-  font-size: 3rem;
+  font-size: 2rem;
   text-transform: uppercase;
   display: flex;
   flex-direction: column;
@@ -89,5 +89,24 @@ export const MobileLinks = styled.div`
     a:hover {
       text-decoration: underline;
     }
+  }
+`;
+
+export const HamburguerMenu = styled.div`
+  display: none;
+  gap: 3rem;
+
+  @media (max-width: 600px) {
+    display: flex;
+  }
+
+  i {
+    font-size: 2.3rem;
+    display: none;
+    cursor: pointer;
+
+    @media (max-width: 600px) {
+    display: flex;
+  }
   }
 `;
