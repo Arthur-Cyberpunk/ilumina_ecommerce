@@ -30,6 +30,7 @@ export const NavLinks = styled.div`
   font-size: 1.8rem;
   text-transform: uppercase;
   display: flex;
+  align-items: center;
   gap: 2.5rem;
 
   @media (max-width: 600px) {
@@ -39,13 +40,14 @@ export const NavLinks = styled.div`
   a {
     color: #000000;
     text-decoration: none;
+  }
 
-    a:hover {
-      text-decoration: underline;
-    }
+  a:hover {
+    text-decoration: underline;
   }
 
   i {
+    font-size: 2rem;
     cursor: pointer;
   }
 `;
@@ -106,7 +108,7 @@ export const HamburguerMenu = styled.div`
     cursor: pointer;
 
     @media (max-width: 600px) {
-    display: flex;
-  }
+      display: flex;
+    }
   }
 `;
