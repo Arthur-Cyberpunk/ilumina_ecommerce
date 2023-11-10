@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TbList, TbShoppingCart } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import Logo from '../../assets/Logo.png';
 import * as S from "./styles";
 
 const NavBar = () => {
@@ -37,7 +38,7 @@ const NavBar = () => {
             <Link>
               <S.LogoImg
                 onClick={scrollToTop}
-                // src={}
+                src={Logo}
                 alt="logo"
               />
             </Link>
@@ -80,9 +81,6 @@ const NavBar = () => {
         <S.MobileLinks>
           <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/all">
             categories
-          </Link>
-          <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/lamps">
-            lamps
           </Link>
           <Link
             onClick={() => setMobileNav(!mobileNav)}
