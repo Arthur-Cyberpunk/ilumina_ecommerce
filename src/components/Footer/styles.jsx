@@ -26,18 +26,3 @@ export const FooterLinks = styled.div`
     text-decoration: underline;
   }
 `;
-
-export const Love = styled.p`
-  color: white;
-  font-size: 1.7rem;
-  margin-top: 3rem;
-
-  a {
-    color: white;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-`;

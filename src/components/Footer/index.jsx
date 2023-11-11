@@ -12,16 +12,6 @@ const Footer = () => {
           <a href="#">Careers</a>
           <a href="#">Contact Us</a>
         </S.FooterLinks>
-        <S.Love>
-          Design &nbsp; by{" "}
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://github.com/Abderraouf-Rahmani"
-          >
-            &nbsp; Abderraouf
-          </a>
-        </S.Love>
       </S.Footer>
     </>
   );
