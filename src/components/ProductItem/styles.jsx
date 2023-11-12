@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Product = styled.div`
@@ -11,15 +12,21 @@ export const Product = styled.div`
   }
 `;
 
-export const ProductHeader = styled.div`
+export const LinkProduct = styled(Link)`
+  text-decoration: none;
+`;
+
+export const InfoProduct = styled.div`
+  font-size: 1.8rem;
+  padding: 1rem;
+
   img {
     width: 100%;
   }
-`;
 
-export const ProductDetails = styled.div`
-  font-size: 1.7rem;
-  padding: 1rem;
+  p {
+    color: black;
+  }
 `;
 
 export const ItemPrice = styled.p`
