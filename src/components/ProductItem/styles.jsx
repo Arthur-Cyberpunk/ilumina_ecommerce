@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const Product = styled.div`
   outline: 2px solid rgba(0, 0, 0, 0.205);
-  outline-offset: -2px;
   transition: all 0.15s ease-in;
   cursor: pointer;
 
