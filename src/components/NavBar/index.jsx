@@ -6,7 +6,7 @@ import * as S from "./styles";
 
 const NavBar = () => {
   const [sticky, setSticky] = useState(false);
-  const [mobile, setMobile] = useState(false);
+  const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
 
   const handleScroll = () => {
@@ -65,7 +65,7 @@ const NavBar = () => {
                 <TbShoppingCart />
               </i>
               <i
-                onClick={() => setMobile(!mobile)}
+                onClick={() => setMobileNav(!mobileNav)}
                 className="hamburger-hamb"
               >
                 <TbList />
@@ -76,14 +76,14 @@ const NavBar = () => {
         </div>
       </S.Navbar>
 
-      <S.NavMobile mobile={mobile}>
-        <S.IconX onClick={() => setMobile(!mobile)} />
+      <S.NavMobile mobileNav={mobileNav}>
+        <S.IconX onClick={() => setMobileNav(!mobileNav)} />
         <S.MobileLinks>
-          <Link onClick={() => setMobile(!mobile)} to="/categories/all">
+          <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/all">
             categories
           </Link>
           <Link
-            onClick={() => setMobile(!mobile)}
+            onClick={() => setMobileNav(!mobileNav)}
             to="/categories/product/19"
           >
             product page
