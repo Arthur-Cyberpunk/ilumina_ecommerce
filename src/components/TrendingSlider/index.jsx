@@ -1,3 +1,4 @@
+import TrendingItem from '../TrendingItem';
 import * as S from "./styles";
 
 const TrendingSlider = () => {
@@ -25,9 +26,9 @@ const TrendingSlider = () => {
             </button>
           </S.ButtonsBox>
         </S.Title>
-        <div className="row-container" id="slider">
-          {/* <TrendingItem /> */}
-        </div>
+        <S.RowContainer id="slider">
+          <TrendingItem />
+        </S.RowContainer>
       </div>
     </S.Trending>
   );

@@ -1,9 +1,19 @@
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchProducts } from '../../redux/actions/product';
 import * as S from "./styles";
 
-const ProductItem = (props) => {
-  const filteredItems = props.products.slice(0, 8);
+const mapStateToProps = (state) => ({
+  products: state.products.products,
+});
 
-  console.log(filteredItems)
+const ProductItem = ({ products, fetchProducts }) => {
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
+
+  const filteredItems = products.slice(0, 8);
 
   return (
     <>
@@ -24,4 +34,4 @@ const ProductItem = (props) => {
   );
 };
 
-export default ProductItem;
+export default connect(mapStateToProps, { fetchProducts })(ProductItem);

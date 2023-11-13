@@ -35,3 +35,21 @@ export const ButtonsBox = styled.div`
     }
   }
 `;
+
+export const RowContainer = styled.div`
+    display: flex;
+    gap: 2.2rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    position: relative;
+    padding: 1rem .6rem;
+
+      &::-webkit-scrollbar {
+        display: none;
+
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+`;
