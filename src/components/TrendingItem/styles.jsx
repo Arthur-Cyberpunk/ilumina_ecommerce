@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const RowItem = styled.div`
-      outline: 2px solid rgba(0, 0, 0, .205);
+    outline: 2px solid rgba(0, 0, 0, .205);
     cursor: pointer;
     transition: all 0.15s ease-in;
 
@@ -20,7 +20,7 @@ export const InfoProduct = styled.div`
   padding: 1rem;
 
   img {
-    width: 21rem;
+    width: 19rem;
   }
 
   p {
