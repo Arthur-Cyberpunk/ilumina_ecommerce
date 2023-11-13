@@ -43,7 +43,7 @@ const NavBar = () => {
               />
             </Link>
             <S.NavLinks>
-              <Link onClick={() => window.scrollTo(0, 0)} to="/">
+              <Link onClick={() => window.scrollTo(0, 0)} to="/categories/all">
                 categories
               </Link>
               <Link onClick={() => window.scrollTo(0, 0)} to="/">
