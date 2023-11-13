@@ -3,6 +3,8 @@ import * as S from "./styles";
 const ProductItem = (props) => {
   const filteredItems = props.products.slice(0, 8);
 
+  console.log(filteredItems)
+
   return (
     <>
       {filteredItems.map((item) => (
