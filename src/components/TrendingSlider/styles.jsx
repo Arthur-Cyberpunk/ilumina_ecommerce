@@ -23,16 +23,16 @@ export const ButtonsBox = styled.div`
     color: white;
     background-color: #373737;
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     border: none;
     height: 4rem;
     width: 4rem;
     cursor: pointer;
     transition: all 0.1s ease-in;
+  }
 
-    button:hover {
-      background-color: black;
-    }
+  button:hover {
+    background-color: black;
   }
 `;
 

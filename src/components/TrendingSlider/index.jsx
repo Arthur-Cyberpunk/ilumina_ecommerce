@@ -1,3 +1,4 @@
+import { TbChevronLeft, TbChevronRight } from "react-icons/tb";
 import TrendingItem from '../TrendingItem';
 import * as S from "./styles";
 
@@ -19,10 +20,10 @@ const TrendingSlider = () => {
           <h3>Trending Now</h3>
           <S.ButtonsBox>
             <button title="scroll left" onClick={slideLeft}>
-              {/* <IconArrowLeft /> */}
+              <TbChevronLeft />
             </button>
             <button title="scroll right" onClick={slideRight}>
-              {/* <IconArrowRight /> */}
+              <TbChevronRight />
             </button>
           </S.ButtonsBox>
         </S.Title>
