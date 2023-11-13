@@ -7,13 +7,13 @@ const ProductItem = (props) => {
     <>
       {filteredItems.map((item) => (
         <S.Product key={item._id}>
-          <S.LinkProduct onClick={() => window.top(0, 0)} to={"/"}>
+          <S.LinkProduct onClick={() => window.top(0, 0)} to={"/categories"}>
             <S.InfoProduct>
                 {item.img.length > 0 && (
                   <img src={item.img[0]} alt="product1" />
                 )}
                 <p>{item.name}</p>
-                <S.ItemPrice>{item.price}R$</S.ItemPrice>
+                <S.ItemPrice>{item.price}$</S.ItemPrice>
             </S.InfoProduct>
           </S.LinkProduct>
         </S.Product>
