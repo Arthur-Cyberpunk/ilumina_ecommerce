@@ -18,7 +18,7 @@ const TrendingItem = ({ products, fetchProducts }) => {
     <>
       {filteredItems.map((item) => (
         <S.RowItem key={item._id}>
-          <S.LinkProduct onClick={() => window.top(0, 0)} to={"/categories"}>
+          <S.LinkProduct onClick={() => window.top(0, 0)} to={`/categories/product/${item.categorie}`}>
             <S.InfoProduct>
               {item.img.length > 0 && <img src={item.img[0]} alt="product1" />}
               <p>{item.name}</p>

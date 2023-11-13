@@ -18,7 +18,7 @@ const Header = () => {
           </S.Featured>
 
           <S.Featured className="grid-four">
-            <Link to="categories/furnitures">
+            <Link to="categories/kitchen">
               <S.Overlay id="img2"></S.Overlay>
               <S.Image src={Main2} alt="img2" />
               <S.Description>Kitchen</S.Description>
@@ -26,7 +26,7 @@ const Header = () => {
           </S.Featured>
 
           <S.Featured className="grid-for-low">
-            <Link to="categories/furnitures">
+            <Link to="categories/electronics">
               <S.Overlay id="img3"></S.Overlay>
               <S.Image src={Main3} alt="img3" />
               <S.Description>Electronics</S.Description>
