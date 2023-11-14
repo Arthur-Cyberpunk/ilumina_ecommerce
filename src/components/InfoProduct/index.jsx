@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router";
-import { fetchProducts } from "../../redux/actions/product";
 import * as S from "./styles";
 
 const mapStateToProps = (state) => ({
   products: state.products.products,
 });
 
-const InfoProduct = ({ products, fetchProducts }) => {
+const InfoProduct = ({ products }) => {
   const [notify, setNotify] = useState(false);
   const [quantity, setQuantity] = useState(1);
-
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
 
   const { id } = useParams();
 
@@ -135,4 +130,4 @@ const InfoProduct = ({ products, fetchProducts }) => {
   );
 };
 
-export default connect(mapStateToProps, { fetchProducts })(InfoProduct);
+export default connect(mapStateToProps)(InfoProduct);

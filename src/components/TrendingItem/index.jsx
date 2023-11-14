@@ -1,16 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { fetchProducts } from "../../redux/actions/product";
 import * as S from "./styles";
 
 const mapStateToProps = (state) => ({
   products: state.products.products,
 });
 
-const TrendingItem = ({ products, fetchProducts }) => {
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+const TrendingItem = ({ products }) => {
 
   const filteredItems = products.slice(8, 16);
 
@@ -31,4 +27,4 @@ const TrendingItem = ({ products, fetchProducts }) => {
   );
 };
 
-export default connect(mapStateToProps, { fetchProducts })(TrendingItem);
+export default connect(mapStateToProps)(TrendingItem);
