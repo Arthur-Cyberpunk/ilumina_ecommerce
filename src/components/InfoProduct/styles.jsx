@@ -20,6 +20,24 @@ export const Notify = styled.div`
       animation-direction: alternate;
       animation-fill-mode: forwards;
     `}
+
+  @keyframes slidein {
+    0% {
+      top: -100%;
+    }
+
+    40% {
+      top: 90px;
+    }
+
+    60% {
+      top: 90px;
+    }
+
+    100% {
+      top: -100%;
+    }
+  }
 `;
 
 export const ProductPage = styled.div`
@@ -31,28 +49,46 @@ export const ProductDiv = styled.div`
   width: 100%;
   display: flex;
   position: relative;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 6rem;
+  }
 `;
 
 export const BigName = styled.h3`
-    position: absolute;
-    font-size: 3.5rem;
-    top: 8px;
-    left: 50%;
-    transform: translate(-50%);
+  position: absolute;
+  font-size: 3.5rem;
+  top: 8px;
+  left: 50%;
+  transform: translate(-50%);
+
+  @media (max-width: 850px) {
+    width: 31rem;
+    text-align: center;
+  }
 `;
 
 export const ProductLeft = styled.div`
   width: 50%;
   height: 100%;
   padding-top: 5rem;
+
+  @media (max-width: 850px) {
+    .product-left {
+      width: 100%;
+    }
+  }
 `;
 
 export const BigImg = styled.div`
-    width: 100%;
-    height: 70%;
-    display: flex;
-    justify-content: center;
-    margin-left: 1rem;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  margin-left: 1rem;
 
   img {
     width: 75%;
@@ -86,16 +122,31 @@ export const SmallImgs = styled.div`
 `;
 
 export const ProductRight = styled.div`
-    width: 50%;
-    height: 100%;
-    background-color: #E5E5E5;
-    padding: 16rem 5rem 8rem 5rem;
+  width: 50%;
+  height: 100%;
+  background-color: #e5e5e5;
+  padding: 16rem 5rem 8rem 5rem;
+
+  @media (max-width: 900px) {
+    padding: 16rem 2rem 8rem 2rem;
+  }
+
+  @media (max-width: 850px) {
+    width: 100%;
+    padding: 3rem 2rem 4rem 2rem;
+  }
 `;
 
 export const ProductSpec = styled.p`
-    font-size: 2rem;
-    margin-bottom: 5rem;
-    line-height: 1.5;
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  line-height: 1.5;
+
+  @media (max-width: 450px) {
+    .product-spec {
+      margin-bottom: 2rem;
+    }
+  }
 `;
 
 export const ProductQuant = styled.div`
@@ -105,6 +156,11 @@ export const ProductQuant = styled.div`
   margin-bottom: 5rem;
   font-weight: 600;
   align-items: center;
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 `;
 
 export const ProductBtns = styled.div`
@@ -147,6 +203,12 @@ export const AtcBuy = styled.div`
   display: flex;
   gap: 2rem;
 
+  @media (max-width: 450px) {
+    gap: 2rem;
+    width: 100%;
+    flex-direction: column;
+  }
+
   button {
     width: 50%;
     height: 5.5rem;
@@ -156,6 +218,10 @@ export const AtcBuy = styled.div`
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s;
+
+    @media (max-width: 450px) {
+      width: 100%;
+    }
   }
 `;
 
@@ -187,6 +253,12 @@ export const Specifications = styled.div`
   width: 100%;
   height: 10rem;
   margin-bottom: 10rem;
+
+  @media (max-width: 570px) {
+    gap: 2rem;
+    flex-direction: column;
+    margin-bottom: 28rem;
+  }
 `;
 
 export const Spec = styled.div`
