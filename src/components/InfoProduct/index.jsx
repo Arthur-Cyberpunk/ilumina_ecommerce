@@ -20,15 +20,13 @@ const InfoProduct = ({ products, fetchProducts }) => {
 
   const item = products.filter((item) => item._id === id);
 
-  console.log(item);
-
-  //const [image, setImage] = useState(item[0].img[0]);
+  const [image, setImage] = useState(item[0]?.img[0]);
 
   // const { addToCart } = useContext(CartContext);
 
-  // const changeImage = (novaImagem) => {
-  //   setImage(novaImagem);
-  // };
+  const changeImage = (newImage) => {
+    setImage(newImage);
+  };
 
   const increase = () => {
     if (quantity >= 1) {
@@ -63,21 +61,21 @@ const InfoProduct = ({ products, fetchProducts }) => {
               <S.BigName>{itens.name}</S.BigName>
               <S.ProductLeft className="product-left">
                 <S.BigImg>
-                  <img src={itens.img[0]} alt="product" />
+                  <img src={image || itens.img[0]} alt="product" />
                 </S.BigImg>
                 <S.SmallImgs>
                   <img
-                    // onClick={() => changeImage(itens.img[0])}
+                    onClick={() => changeImage(itens.img[0])}
                     src={itens.img[0]}
                     alt="product"
                   />
                   <img
-                    //   onClick={() => changeImage(itens.img[1])}
+                      onClick={() => changeImage(itens.img[1])}
                     src={itens.img[1]}
                     alt="product"
                   />
                   <img
-                    // onClick={() => changeImage(itens.img[2])}
+                    onClick={() => changeImage(itens.img[2])}
                     src={itens.img[2]}
                     alt="product"
                   />
