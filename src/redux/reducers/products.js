@@ -4,6 +4,8 @@ const initialState = {
 
 const productsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "FETCH_PRODUCTS_REQUEST":
+      return { ...state, loading: true };
     case "SET_PRODUCTS":
       return { ...state, products: action.payload };
     default:
