@@ -11,8 +11,10 @@ export const fetchProducts = () => {
   return async (dispatch, getState) => {
     const { products } = getState();
 
+    console.log("alo");
+
     if (products.products.length > 0) {
-      dispatch(fetchProductsRequest());
+      dispatch(setProducts(products.products));
     } else {
       try {
         const response = await fetch(

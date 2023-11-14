@@ -35,7 +35,7 @@ const NavBar = () => {
       <S.Navbar>
         <div className="container">
           <S.NavContainer sticky={sticky}>
-            <Link>
+            <Link to="/">
               <S.LogoImg
                 onClick={scrollToTop}
                 src={Logo}

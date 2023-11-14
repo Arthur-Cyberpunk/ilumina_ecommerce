@@ -10,6 +10,7 @@ import Furnitures from "./pages/Categories-Pages/CategoriesItemFurniture";
 import Kitchen from "./pages/Categories-Pages/CategoriesItemKitchen";
 import Lamps from "./pages/Categories-Pages/CategoriesItemLamps";
 import Home from "./pages/Home";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
@@ -25,8 +26,7 @@ function App() {
           <Route path="kitchen" element={<Kitchen />} />
           <Route path="chairs" element={<Chairs />} />
         </Route>
-        {/* <Route path="testimonials" element={<Testimonials />} />
-        <Route path="contact" element={<Contact />} /> */}
+        <Route path="categories/product/:id" element={<ProductPage />} />
       </Routes>
       <Newsletter />
       <Footer />

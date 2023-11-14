@@ -19,7 +19,7 @@ const ProductItem = ({ products, fetchProducts }) => {
     <>
       {filteredItems.map((item) => (
         <S.Product key={item._id}>
-          <S.LinkProduct onClick={() => window.top(0, 0)} to={`/categories/product/${item.categorie}`}>
+          <S.LinkProduct onClick={() => window.top(0, 0)} to={`/categories/product/${item._id}`}>
             <S.InfoProduct>
                 {item.img.length > 0 && (
                   <img src={item.img[0]} alt="product1" />
