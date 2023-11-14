@@ -25,7 +25,7 @@ const CategoriesItem = ({ products, fetchProducts }) => {
               <S.RowItem key={item._id}>
                 <S.LinkProduct
                   onClick={() => window.top(0, 0)}
-                  to={`/categories/product/${item.id}`}
+                  to={`/categories/product/${item._id}`}
                 >
                   <S.InfoProduct>
                     {item.img.length > 0 && (
