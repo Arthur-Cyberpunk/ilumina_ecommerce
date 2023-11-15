@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { fetchProducts } from '../../redux/actions/product';
 import * as S from "./styles";
 
 const mapStateToProps = (state) => ({
   products: state.products.products,
 });
 
-const CategoriesItem = ({ products}) => {
+const CategoriesItem = ({ products, fetchProducts}) => {
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
   return (
     <>
@@ -33,4 +38,4 @@ const CategoriesItem = ({ products}) => {
   );
 };
 
-export default connect(mapStateToProps)(CategoriesItem);
+export default connect(mapStateToProps, { fetchProducts })(CategoriesItem);

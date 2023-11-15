@@ -12,7 +12,7 @@ export const fetchProducts = () => {
     const { products } = getState();
 
     if (products.products.length > 0) {
-      dispatch(setProducts(products.products));
+      dispatch(fetchProductsRequest());
     } else {
       try {
         const response = await fetch(
