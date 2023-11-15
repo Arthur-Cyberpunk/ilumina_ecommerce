@@ -90,6 +90,10 @@ export const BigImg = styled.div`
   justify-content: center;
   margin-left: 1rem;
 
+  @media (max-width: 850px) {
+    margin: 6rem 0 0 1rem;
+  }
+
   img {
     width: 75%;
     height: 100%;
