@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import * as S from "../../components/CategoriesItem/styles";
+import { fetchProducts } from '../../redux/actions/product';
 
 const mapStateToProps = (state) => ({
   products: state.products.products,
 });
 
-const CategoriesItem = ({ products }) => {
+const CategoriesItem = ({ products, fetchProducts }) => {
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
   const filteredItems = products.filter(
     (item) => item.categories === "electronic",
@@ -40,4 +45,4 @@ const CategoriesItem = ({ products }) => {
   );
 };
 
-export default connect(mapStateToProps)(CategoriesItem);
+export default connect(mapStateToProps, { fetchProducts })(CategoriesItem);
