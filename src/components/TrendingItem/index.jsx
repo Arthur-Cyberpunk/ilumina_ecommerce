@@ -1,19 +1,11 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { fetchProducts } from '../../redux/actions/product';
+import React from "react";
+import { useSelector } from 'react-redux';
 import * as S from "./styles";
 
-const mapStateToProps = (state) => ({
-  products: state.products.products,
-});
+const TrendingItem = () => {
+  const data = useSelector((state) => state.data);
 
-const TrendingItem = ({ products, fetchProducts }) => {
-
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
-
-  const filteredItems = products.slice(8, 16);
+  const filteredItems = data.slice(8, 16);
 
   return (
     <>
@@ -32,4 +24,4 @@ const TrendingItem = ({ products, fetchProducts }) => {
   );
 };
 
-export default connect(mapStateToProps, { fetchProducts })(TrendingItem);
+export default TrendingItem;

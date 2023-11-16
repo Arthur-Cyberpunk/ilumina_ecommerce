@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { useSelector } from 'react-redux';
 import { useParams } from "react-router";
+import useFetchData from '../../utils/useFetchData';
 import * as S from "./styles";
 
-const mapStateToProps = (state) => ({
-  products: state.products.products,
-});
-
-const InfoProduct = ({ products }) => {
+const InfoProduct = () => {
+  const data = useSelector((state) => state.data);
   const [notify, setNotify] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
+  useFetchData()
+
   const { id } = useParams();
 
-  const item = products.filter((item) => item._id === id);
+  const item = data.filter((item) => item._id === id);
 
   const [image, setImage] = useState(item[0]?.img[0]);
 
@@ -48,7 +48,6 @@ const InfoProduct = ({ products }) => {
       <S.Notify onAnimationEnd={() => setNotify(false)} notify={notify}>
         <p>Item has been added to the cart &nbsp; ✅</p>
       </S.Notify>
-
       <S.ProductPage>
         {item.map((itens) => (
           <div className="container">
@@ -65,7 +64,7 @@ const InfoProduct = ({ products }) => {
                     alt="product"
                   />
                   <img
-                      onClick={() => changeImage(itens.img[1])}
+                    onClick={() => changeImage(itens.img[1])}
                     src={itens.img[1]}
                     alt="product"
                   />
@@ -130,4 +129,4 @@ const InfoProduct = ({ products }) => {
   );
 };
 
-export default connect(mapStateToProps)(InfoProduct);
+export default InfoProduct;

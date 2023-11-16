@@ -4,11 +4,11 @@ import NavBar from "./components/NavBar";
 import Newsletter from "./components/Newsletter";
 import Categories from "./pages/Categories";
 import All from "./pages/Categories-Pages/All";
-import Chairs from "./pages/Categories-Pages/CategoriesItemChairs";
-import Electronics from "./pages/Categories-Pages/CategoriesItemElectronics";
-import Furnitures from "./pages/Categories-Pages/CategoriesItemFurniture";
-import Kitchen from "./pages/Categories-Pages/CategoriesItemKitchen";
-import Lamps from "./pages/Categories-Pages/CategoriesItemLamps";
+import Chairs from "./pages/Categories-Pages/Chairs";
+import Electronics from "./pages/Categories-Pages/Electronics";
+import Furnitures from "./pages/Categories-Pages/Furnitures";
+import Kitchen from "./pages/Categories-Pages/Kitchen";
+import Lamps from "./pages/Categories-Pages/Lamps";
 import Home from "./pages/Home";
 import ProductPage from "./pages/ProductPage";
 

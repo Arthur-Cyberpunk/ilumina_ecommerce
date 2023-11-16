@@ -1,24 +1,29 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { fetchProducts } from '../../redux/actions/product';
+import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
+import usePath from '../../utils/usePath';
 import * as S from "./styles";
 
-const mapStateToProps = (state) => ({
-  products: state.products.products,
-});
-
-const CategoriesItem = ({ products, fetchProducts}) => {
+const CategoriesItem = () => {
+  const data = useSelector((state) => state.data);
+  const [filteredItems, setFilteredItems] = useState([]);
+  const lastPath = usePath();
 
   useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+    if (lastPath === 'all') {
+      setFilteredItems(data)
+    } else {
+      setFilteredItems(data.filter(
+        (item) => item.categories === lastPath,
+      ));
+    }
+  }, [data, lastPath]);
 
   return (
     <>
       <S.ProudContainer>
         <div className="container">
           <S.ProductsGrid>
-            {products.map((item) => (
+            {filteredItems.map((item) => (
               <S.RowItem key={item._id}>
                 <S.LinkProduct onClick={() => window.top(0, 0)} to={`/categories/product/${item._id}`}>
                   <S.InfoProduct>
@@ -38,4 +43,4 @@ const CategoriesItem = ({ products, fetchProducts}) => {
   );
 };
 
-export default connect(mapStateToProps, { fetchProducts })(CategoriesItem);
+export default CategoriesItem;

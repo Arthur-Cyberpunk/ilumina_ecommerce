@@ -1,7 +1,10 @@
-import { applyMiddleware, createStore } from "redux";
-import thunk from "redux-thunk"; // Se estiver usando middlewares, como o redux-thunk
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import thunk from "redux-thunk";
+import productsReducer from "../reducers/products";
 
-import rootReducer from "../reducers/index"; // Importe o seu rootReducer
+const rootReducer = combineReducers({
+  data: productsReducer,
+});
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
