@@ -52,6 +52,42 @@ export const NavLinks = styled.div`
   }
 `;
 
+export const CartDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    padding: 3rem 2.5rem 1.5rem 2.5rem;
+    background-color: white;
+    height: 100vh;
+    width: 50rem;
+    transition: all 0.4s ease;
+    right: ${(props) => (props.cart ? "0" : "-100%")};
+`;
+
+export const CartTitleBtn = styled.div`
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 2.1rem !important;
+    }
+
+    i {
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+`;
+
+export const CartBody = styled.div`
+    height: 100vh;
+    padding: 0.5rem;
+`;
+
 export const NavMobile = styled.nav`
   background-color: #f3f3f3;
   z-index: 200;

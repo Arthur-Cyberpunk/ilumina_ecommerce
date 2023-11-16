@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { BsXLg } from "react-icons/bs";
 import { TbList, TbShoppingCart } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import Logo from '../../assets/Logo.png';
+import EmptyCart from '../EmptyCart';
 import * as S from "./styles";
 
 const NavBar = () => {
@@ -46,10 +48,16 @@ const NavBar = () => {
               <Link onClick={() => window.scrollTo(0, 0)} to="/categories/all">
                 categories
               </Link>
-              <Link onClick={() => window.scrollTo(0, 0)} to="/">
+              <Link onClick={() => window.scrollTo(0, 0)} to="/categories/product/6552a19d28b8c5edc2260688">
                 product page
               </Link>
-              <i onClick={openCart}>
+              <i            
+                // data-array-length={cartItem.length}
+                // onClick={openCart}
+                // className={`${
+                //   cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
+                // }`}
+                >
                 <TbShoppingCart />
               </i>
             </S.NavLinks>
@@ -75,6 +83,25 @@ const NavBar = () => {
           </S.NavContainer>
         </div>
       </S.Navbar>
+
+      <S.CartDiv cart={cart}>
+        <S.CartTitleBtn>
+          <h2>
+            {/* Your Shopping Cart ({cartItem.length}) */}
+          </h2>
+          <BsXLg onClick={openCart} />
+        </S.CartTitleBtn>
+
+        <S.CartBody>
+          {/* {cartItem.length < 1 ? (
+            <EmptyCart openCart={openCart} />
+          ) : (
+            <CartWithItems />
+          )} */}
+
+          <EmptyCart openCart={openCart} />
+        </S.CartBody>
+      </S.CartDiv>
 
       <S.NavMobile mobileNav={mobileNav}>
         <S.IconX onClick={() => setMobileNav(!mobileNav)} />
