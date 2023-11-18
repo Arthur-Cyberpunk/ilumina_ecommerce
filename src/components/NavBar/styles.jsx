@@ -52,6 +52,18 @@ export const NavLinks = styled.div`
   }
 `;
 
+export const PageOverlay = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000075;
+    z-index: 888;
+    transition: all 0.3s ease-in;
+    display: ${(props) => (props.cart ? "flex" : "none")};
+`;
+
 export const CartDiv = styled.div`
     display: flex;
     flex-direction: column;

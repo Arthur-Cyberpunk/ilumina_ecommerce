@@ -53,7 +53,7 @@ const NavBar = () => {
               </Link>
               <i            
                 // data-array-length={cartItem.length}
-                // onClick={openCart}
+                onClick={openCart}
                 // className={`${
                 //   cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
                 // }`}
@@ -62,7 +62,7 @@ const NavBar = () => {
               </i>
             </S.NavLinks>
 
-            <S.HamburguerMenu className="hamburger-menu">
+            <S.HamburguerMenu>
               <i
                 // data-array-length={cartItem.length}
                 // onClick={openCart}
@@ -74,7 +74,6 @@ const NavBar = () => {
               </i>
               <i
                 onClick={() => setMobileNav(!mobileNav)}
-                className="hamburger-hamb"
               >
                 <TbList />
               </i>
@@ -83,6 +82,11 @@ const NavBar = () => {
           </S.NavContainer>
         </div>
       </S.Navbar>
+
+      <S.PageOverlay
+        onClick={openCart}
+        cart={cart}
+      ></S.PageOverlay>
 
       <S.CartDiv cart={cart}>
         <S.CartTitleBtn>
