@@ -4,7 +4,7 @@ import usePath from '../../utils/usePath';
 import * as S from "./styles";
 
 const CategoriesItem = () => {
-  const data = useSelector((state) => state.data);
+  const data = useSelector(rootReducer => rootReducer.productsReducer);
   const [filteredItems, setFilteredItems] = useState([]);
   const lastPath = usePath();
 
@@ -23,7 +23,7 @@ const CategoriesItem = () => {
       <S.ProudContainer>
         <div className="container">
           <S.ProductsGrid>
-            {filteredItems.map((item) => (
+            {filteredItems?.map((item) => (
               <S.RowItem key={item._id}>
                 <S.LinkProduct onClick={() => window.top(0, 0)} to={`/categories/product/${item._id}`}>
                   <S.InfoProduct>

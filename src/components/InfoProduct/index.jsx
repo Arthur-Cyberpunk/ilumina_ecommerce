@@ -5,7 +5,7 @@ import useFetchData from '../../utils/useFetchData';
 import * as S from "./styles";
 
 const InfoProduct = () => {
-  const data = useSelector((state) => state.data);
+  const data = useSelector(rootReducer => rootReducer.productsReducer);
   const [notify, setNotify] = useState(false);
   const [quantity, setQuantity] = useState(1);
 

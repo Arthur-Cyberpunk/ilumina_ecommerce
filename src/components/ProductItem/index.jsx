@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux';
 import * as S from "./styles";
 
 const ProductItem = () => {
-  const data = useSelector((state) => state.data);
+  const data = useSelector(rootReducer => rootReducer.productsReducer);
 
-  const filteredItems = data.slice(0, 8);
+  const filteredItems = data?.slice(0, 8);
 
   return (
     <>
-      {filteredItems.map((item) => (
+      {filteredItems?.map((item) => (
         <S.Product key={item._id}>
           <S.LinkProduct onClick={() => window.top(0, 0)} to={`/categories/product/${item._id}`}>
             <S.InfoProduct>

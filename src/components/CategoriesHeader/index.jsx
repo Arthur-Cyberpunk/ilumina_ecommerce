@@ -7,7 +7,7 @@ import usePath from '../../utils/usePath';
 import * as S from "./styles";
 
 const CategoriesHeader = () => {
-  const data = useSelector((state) => state.data);
+  const data = useSelector(rootReducer => rootReducer.productsReducer);
   const [path, setPath] = useState("");
   const lastPath = usePath();
 
