@@ -26,6 +26,14 @@ export const Subtotal = styled.div`
   justify-content: space-between;
 `;
 
+export const SubRight = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+`;
+
 export const SubLeft = styled.div`
   padding-top: 4rem;
 

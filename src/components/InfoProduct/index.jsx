@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router";
+import { addProductToCart } from "../../redux/cart/action";
 import useFetchData from '../../utils/useFetchData';
 import * as S from "./styles";
 
@@ -42,6 +43,12 @@ const InfoProduct = () => {
   const showNotify = () => {
     setNotify(!notify);
   };
+
+  const dispatch = useDispatch()
+
+  const handleProductClick = () => {
+    dispatch(addProductToCart(item))
+  }
 
   return (
     <>
@@ -94,10 +101,10 @@ const InfoProduct = () => {
                 </S.ProductQuant>
                 <S.AtcBuy>
                   <S.AtcBtn
-                  // onClick={() => {
-                  //   addToCart(item[0]);
-                  //   showNotify();
-                  // }}
+                  onClick={() => {
+                    handleProductClick(item);
+                    showNotify();
+                  }}
                   >
                     add to cart
                   </S.AtcBtn>

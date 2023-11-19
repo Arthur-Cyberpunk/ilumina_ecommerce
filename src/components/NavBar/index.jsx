@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { BsXLg } from "react-icons/bs";
 import { TbList, TbShoppingCart } from "react-icons/tb";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Logo from '../../assets/Logo.png';
+import CartWithItems from '../CartWithItems';
 import EmptyCart from '../EmptyCart';
 import * as S from "./styles";
 
 const NavBar = () => {
+  const {products} = useSelector(rootReducer => rootReducer.cartReducer)
   const [sticky, setSticky] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
@@ -97,13 +100,11 @@ const NavBar = () => {
         </S.CartTitleBtn>
 
         <S.CartBody>
-          {/* {cartItem.length < 1 ? (
+          {products.length < 1 ? (
             <EmptyCart openCart={openCart} />
           ) : (
             <CartWithItems />
-          )} */}
-
-          <EmptyCart openCart={openCart} />
+          )}
         </S.CartBody>
       </S.CartDiv>
 
