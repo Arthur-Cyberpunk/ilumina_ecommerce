@@ -35,8 +35,6 @@ const NavBar = () => {
     setCart(!cart);
   };
 
-  console.log(products[0]?.quantity)
-
   return (
     <>
       <S.Navbar>

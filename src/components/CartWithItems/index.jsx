@@ -9,6 +9,8 @@ function CartWithItems() {
 
   const [totalPrice, setTotalPrice] = useState(0);
 
+  console.log(products)
+
   return (
     <>
       <S.FullCartDiv>

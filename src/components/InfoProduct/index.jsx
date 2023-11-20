@@ -18,8 +18,6 @@ const InfoProduct = () => {
 
   const [image, setImage] = useState(item[0]?.img[0]);
 
-  // const { addToCart } = useContext(CartContext);
-
   const changeImage = (newImage) => {
     setImage(newImage);
   };
