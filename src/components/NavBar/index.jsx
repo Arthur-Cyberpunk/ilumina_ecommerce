@@ -90,7 +90,7 @@ const NavBar = () => {
       <S.CartDiv cart={cart}>
         <S.CartTitleBtn>
           <h2>
-            {/* Your Shopping Cart ({cartItem.length}) */}
+            Your Shopping Cart ({products[0]?.quantity})
           </h2>
           <BsXLg onClick={openCart} />
         </S.CartTitleBtn>
@@ -112,7 +112,7 @@ const NavBar = () => {
           </Link>
           <Link
             onClick={() => setMobileNav(!mobileNav)}
-            to="/categories/product/19"
+            to="/categories/product/6552a19d28b8c5edc2260688"
           >
             product page
           </Link>

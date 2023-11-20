@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router";
 import { addProductToCart } from "../../redux/cart/action";
@@ -7,8 +7,10 @@ import * as S from "./styles";
 
 const InfoProduct = () => {
   const data = useSelector(rootReducer => rootReducer.productsReducer);
+  const dispatch = useDispatch()
   const [notify, setNotify] = useState(false);
   const [quantity, setQuantity] = useState(1);
+  const [image, setImage] = useState('');
 
   useFetchData()
 
@@ -16,33 +18,17 @@ const InfoProduct = () => {
 
   const item = data.filter((item) => item._id === id);
 
-  const [image, setImage] = useState(item[0]?.img[0]);
-
   const changeImage = (newImage) => {
     setImage(newImage);
   };
 
-  const increase = () => {
-    if (quantity >= 1) {
-      setQuantity(quantity + 1);
-    }
-  };
-
-  const decrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const calcPrice = (quantity) => {
-    return quantity * item[0].price;
-  };
+  useEffect(() => {
+    setImage(item[0]?.img[0]);
+  }, [item]);
 
   const showNotify = () => {
     setNotify(!notify);
   };
-
-  const dispatch = useDispatch()
 
   const handleProductClick = () => {
     dispatch(addProductToCart(item))
@@ -50,32 +36,31 @@ const InfoProduct = () => {
 
   return (
     <>
-      <S.Notify onAnimationEnd={() => setNotify(false)} notify={notify}>
+      <S.Notify className={notify ? 'slide-in' : ''} onAnimationEnd={() => setNotify(false)}>
         <p>Item has been added to the cart &nbsp; ✅</p>
       </S.Notify>
       <S.ProductPage>
-        {item.map((itens) => (
           <div className="container">
             <S.ProductDiv>
-              <S.BigName>{itens.name}</S.BigName>
-              <S.ProductLeft className="product-left">
+              <S.BigName>{item[0]?.name}</S.BigName>
+              <S.ProductLeft>
                 <S.BigImg>
-                  <img src={image || itens.img[0]} alt="product" />
+                  <img src={image} alt="product" />
                 </S.BigImg>
                 <S.SmallImgs>
                   <img
-                    onClick={() => changeImage(itens.img[0])}
-                    src={itens.img[0]}
+                    onClick={() => changeImage(item[0]?.img[0])}
+                    src={item[0]?.img[0]}
                     alt="product"
                   />
                   <img
-                    onClick={() => changeImage(itens.img[1])}
-                    src={itens.img[1]}
+                    onClick={() => changeImage(item[0]?.img[1])}
+                    src={item[0]?.img[1]}
                     alt="product"
                   />
                   <img
-                    onClick={() => changeImage(itens.img[2])}
-                    src={itens.img[2]}
+                    onClick={() => changeImage(item[0]?.img[2])}
+                    src={item[0]?.img[2]}
                     alt="product"
                   />
                 </S.SmallImgs>
@@ -89,13 +74,8 @@ const InfoProduct = () => {
                   specimen book.
                 </S.ProductSpec>
                 <S.ProductQuant>
-                  <p>Quantity</p>
-                  <S.ProductBtns>
-                    <button onClick={decrease}>-</button>
-                    <p className="quantity">{quantity}</p>
-                    <button onClick={increase}>+</button>
-                  </S.ProductBtns>
-                  <p className="product-price">{calcPrice(quantity)}.00$</p>
+                  <p>Price: &nbsp;</p>
+                  <p>{item[0]?.price}.00$</p>
                 </S.ProductQuant>
                 <S.AtcBuy>
                   <S.AtcBtn
@@ -113,22 +93,21 @@ const InfoProduct = () => {
 
             <S.Specifications>
               <S.Spec>
-                <S.SpecTitle className="spec-title">Texture:</S.SpecTitle>
-                <S.TitleName className="title-desc">
-                  {itens.texture}
+                <S.SpecTitle >Texture:</S.SpecTitle>
+                <S.TitleName >
+                  {item[0]?.texture}
                 </S.TitleName>
               </S.Spec>
               <S.Spec>
-                <S.SpecTitle className="spec-title">Weight:</S.SpecTitle>
-                <S.TitleName className="title-desc">{itens.weight}</S.TitleName>
+                <S.SpecTitle>Weight:</S.SpecTitle>
+                <S.TitleName>{item[0]?.weight}</S.TitleName>
               </S.Spec>
               <S.Spec>
-                <S.SpecTitle className="spec-title">Size:</S.SpecTitle>
-                <S.TitleName className="title-desc">{itens.size}</S.TitleName>
+                <S.SpecTitle>Size:</S.SpecTitle>
+                <S.TitleName>{item[0]?.size}</S.TitleName>
               </S.Spec>
             </S.Specifications>
           </div>
-        ))}
       </S.ProductPage>
     </>
   );

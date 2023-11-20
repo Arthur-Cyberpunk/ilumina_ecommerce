@@ -5,7 +5,7 @@ export const FullCartDiv = styled.div`
   padding: 5px;
   height: 70%;
   margin-top: 2rem;
-  margin-right: -0.5rem;
+  margin-right: -.5rem;
 `;
 
 export const FullCart = styled.div`
@@ -24,6 +24,11 @@ export const Subtotal = styled.div`
   margin-top: 1.5rem;
   padding: 1rem 0;
   justify-content: space-between;
+
+  @media (max-width:420px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `;
 
 export const SubRight = styled.div`

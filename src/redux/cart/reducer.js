@@ -7,20 +7,29 @@ const initialState = {
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case CartActionTypes.ADD_PRODUCT:
-      const productIsAlreadyInCart = state.products.some(
-        (product) => product._id === action.payload._id,
-      );
+      const productIsAlreadyInCart = state.products.some((product) => {
+        console.log(product);
+        return product._id === action.payload._id;
+      });
+
+      console.log(productIsAlreadyInCart);
 
       if (productIsAlreadyInCart) {
+        const updatedProducts = state.products.map((product) =>
+          product._id === action.payload._id
+            ? { ...product, quantity: product.quantity + 1 }
+            : product,
+        );
+
+        console.log("Updated Products:", updatedProducts);
+
         return {
           ...state,
-          products: state.products.map((product) =>
-            product._id === action.payload._id
-              ? { ...product, quantity: product.quantity + 1 }
-              : product,
-          ),
+          products: updatedProducts,
         };
       }
+
+      console.log("New Product:", action.payload);
       return {
         ...state,
         products: [...state.products, { ...action.payload, quantity: 1 }],

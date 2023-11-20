@@ -77,6 +77,10 @@ export const CartDiv = styled.div`
     width: 50rem;
     transition: all 0.4s ease;
     right: ${(props) => (props.cart ? "0" : "-100%")};
+
+    @media (max-width:600px) {
+        width: 100%;
+    }
 `;
 
 export const CartTitleBtn = styled.div`
@@ -84,6 +88,7 @@ export const CartTitleBtn = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 
     h2 {
       font-size: 2.1rem !important;

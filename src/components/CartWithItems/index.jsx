@@ -9,12 +9,10 @@ function CartWithItems() {
 
   const [totalPrice, setTotalPrice] = useState(0);
 
-  console.log(products)
-
   return (
     <>
       <S.FullCartDiv>
-        <S.FullCart className="full-cart">
+        <S.FullCart>
           {products.map((product, id) =>
             products.length !== 0 ? (
               <CartItem product={product} id={id} setTotalPrice={setTotalPrice}/>
@@ -27,7 +25,7 @@ function CartWithItems() {
       <S.Subtotal>
         <S.SubRight>
           <p>Subtotal</p>
-          <p className="total-price">{totalPrice + ".00$"}</p>
+          <p>{totalPrice + ".00$"}</p>
         </S.SubRight>
         <S.SubLeft>
           <Link>Go to Checkout</Link>

@@ -1,4 +1,3 @@
-import { BsXLg } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import {
     decreaseProductQuantity,
@@ -35,17 +34,17 @@ const CartItem = ({ product, id, setTotalPrice }) => {
         </S.CartImg>
         <S.CartMiddle>
           <S.CartName>{product[0].name}</S.CartName>
-          <S.CartBtns className="cart-btns">
+          <S.CartBtns>
             <button onClick={() => decreaseProduct(product._id)}>-</button>
-            <p className="quantity">{product.quantity}</p>
+            <p>{product.quantity}</p>
             <button onClick={() => increaseProduct(product._id)}>+</button>
           </S.CartBtns>
         </S.CartMiddle>
-        <S.CartRight className="cart-right">
-          <p className="cart-price">
+        <S.CartRight>
+          <p>
             {calcPrice(product.quantity, product[0].price)}.00$
           </p>
-          <BsXLg onClick={() => removeFromCart(product._id)} />
+          <S.IconX onClick={() => removeFromCart(product._id)} />
         </S.CartRight>
       </S.CartItem>
     </>

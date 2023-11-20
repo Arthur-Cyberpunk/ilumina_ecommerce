@@ -1,4 +1,22 @@
-import styled, { css } from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const slidein = keyframes`
+  0% {
+    top: -100%;
+  }
+
+  40% {
+    top: 90px;
+  }
+
+  60% {
+    top: 90px;
+  }
+
+  100% {
+    top: -100%;
+  }
+`;
 
 export const Notify = styled.div`
   color: white;
@@ -11,32 +29,12 @@ export const Notify = styled.div`
   top: -100%;
   left: 50%;
 
-  ${(props) =>
-    props.adicionarAnimacao &&
-    css`
-      animation-duration: 4s;
-      animation-delay: -1s;
-      animation-name: slidein;
-      animation-direction: alternate;
-      animation-fill-mode: forwards;
-    `}
-
-  @keyframes slidein {
-    0% {
-      top: -100%;
-    }
-
-    40% {
-      top: 90px;
-    }
-
-    60% {
-      top: 90px;
-    }
-
-    100% {
-      top: -100%;
-    }
+  &.slide-in {
+    animation-duration: 4s;
+    animation-delay: -1s;
+    animation-name: ${slidein};
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
   }
 `;
 
@@ -155,7 +153,7 @@ export const ProductSpec = styled.p`
 
 export const ProductQuant = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   font-size: 2.5rem;
   margin-bottom: 5rem;
   font-weight: 600;
@@ -232,22 +230,12 @@ export const AtcBuy = styled.div`
 export const AtcBtn = styled.button`
   background-color: transparent;
   border: 2px solid black !important;
-
-  hover {
-    color: white;
-    background-color: black;
-  }
 `;
 
 export const BuyBtn = styled.button`
   background-color: #b6002c;
   color: white;
   border: 2px solid #b6002c !important;
-
-  button:hover {
-    background-color: transparent;
-    color: #b6002c;
-  }
 `;
 
 export const Specifications = styled.div`

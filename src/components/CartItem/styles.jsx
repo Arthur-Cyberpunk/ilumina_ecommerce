@@ -1,3 +1,4 @@
+import { BsXLg } from "react-icons/bs";
 import styled from "styled-components";
 
 export const CartItem = styled.div`
@@ -8,6 +9,12 @@ export const CartItem = styled.div`
     border: 1px solid #717171;
     border-radius: 3px;
     background-color: #f2f2f2;
+
+    @media (max-width:420px) {
+        grid-template-columns: 1fr;
+        height: 100%;
+        width: 90%;
+    }
 `;
 
 export const CartImg = styled.div`
@@ -20,6 +27,11 @@ export const CartImg = styled.div`
     height: 100%;
     object-fit: cover;
     border-radius: 3px;
+
+    @media (max-width:420px) {
+        width: 80%;
+        transform: translate(10%);
+    }
 }
 `;
 
@@ -28,6 +40,11 @@ export const CartMiddle = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding: 1.5rem;
+
+    @media (max-width:420px) {
+        align-items: center;
+        gap: 2rem;
+    }
 `;
 
 export const CartName = styled.p`
@@ -64,4 +81,13 @@ export const CartRight = styled.div`
     padding: 1.5rem;
     font-size: 2.4rem;
     font-weight: 600;
+
+    @media (max-width:420px) {
+        text-align: center;
+        flex-direction: row;
+    }
+`;
+
+export const IconX = styled(BsXLg)`
+    cursor: pointer;
 `;
