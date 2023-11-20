@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItem from '../CartItem';
@@ -9,18 +9,13 @@ function CartWithItems() {
 
   const [totalPrice, setTotalPrice] = useState(0);
 
-  useEffect(() => {
-    const newTotalPrice = products.reduce((acc, item) => acc + item.price, 0);
-    setTotalPrice(newTotalPrice);
-  }, [products]);
-
   return (
     <>
       <S.FullCartDiv>
         <S.FullCart className="full-cart">
-          {products.map(() =>
+          {products.map((product, id) =>
             products.length !== 0 ? (
-              <CartItem />
+              <CartItem product={product} id={id} setTotalPrice={setTotalPrice}/>
             ) : (
               <></>
             ),

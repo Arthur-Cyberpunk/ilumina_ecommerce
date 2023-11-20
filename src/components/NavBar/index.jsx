@@ -35,6 +35,8 @@ const NavBar = () => {
     setCart(!cart);
   };
 
+  console.log(products[0]?.quantity)
+
   return (
     <>
       <S.Navbar>
@@ -54,27 +56,23 @@ const NavBar = () => {
               <Link onClick={() => window.scrollTo(0, 0)} to="/categories/product/6552a19d28b8c5edc2260688">
                 product page
               </Link>
-              <i            
-                // data-array-length={cartItem.length}
+              <S.IconCart            
+                data-array-length={products[0]?.quantity}
                 onClick={openCart}
-                // className={`${
-                //   cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
-                // }`}
+                withItems={products[0]?.quantity > 0}
                 >
                 <TbShoppingCart />
-              </i>
+              </S.IconCart>
             </S.NavLinks>
 
             <S.HamburguerMenu>
-              <i
-                // data-array-length={cartItem.length}
-                // onClick={openCart}
-                // className={`hamburger-cart ${
-                //   cartItem.length < 1 ? "cart-icon" : "cart-icon with-items"
-                // }`}
+              <S.IconCart
+                data-array-length={products[0]?.quantity}
+                onClick={openCart}
+                withItems={products[0]?.quantity > 0}
               >
                 <TbShoppingCart />
-              </i>
+              </S.IconCart>
               <i
                 onClick={() => setMobileNav(!mobileNav)}
               >

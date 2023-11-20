@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { BsXLg } from "react-icons/bs";
-import { useSelector } from "react-redux";
 import * as S from "./styles";
 
-const CartItem = () => {
-    const {products} = useSelector(rootReducer => rootReducer.cartReducer)
+const CartItem = ({product, id, setTotalPrice}) => {
   const [quantity, setQuantity] = useState(1);
 
   const increase = () => {
@@ -19,45 +17,43 @@ const CartItem = () => {
     }
   };
 
-  const calcPrice = (quantity) => {
-    return quantity * products.price;
+  const calcPrice = (quantity, item) => {
+    setTotalPrice(quantity * item)
+    return quantity * item;
   };
 
-  const [deleteItem, setDeleteItem] = useState(products);
+  const [deleteItem, setDeleteItem] = useState(product);
 
   const removeFromCart = (id) => {
-    const updateCart = products.filter((item) => item.id !== id);
+    const updateCart = product.filter((item) => item.id !== id);
     setDeleteItem(updateCart);
-    const json = JSON.stringify(products.id);
+    const json = JSON.stringify(product.id);
     localStorage.removeItem("cartItem", json);
   };
 
 //   useEffect(() => {
 //     setCartItem(deleteItem);
 //   }, [deleteItem, setCartItem]);
-console.log(products)
 
   return (
     <>
-      {products.map((item, id) => (
         <S.CartItem key={id}>
           <S.CartImg>
-            <img src={item[0].img[0]} alt="product" />
+            <img src={product[0].img[0]} alt="product" />
           </S.CartImg>
           <S.CartMiddle>
-            <S.CartName>{item[0].name}</S.CartName>
+            <S.CartName>{product[0].name}</S.CartName>
             <S.CartBtns className="cart-btns">
               <button onClick={decrease}>-</button>
-              <p className="quantity">{item.quantity}</p>
+              <p className="quantity">{product.quantity}</p>
               <button onClick={increase}>+</button>
             </S.CartBtns>
           </S.CartMiddle>
           <S.CartRight className="cart-right">
-            <p className="cart-price"> {item[0].price}.00$</p>
-            <BsXLg onClick={() => removeFromCart(item.id)} />
+            <p className="cart-price">{calcPrice(product.quantity, product[0].price)}.00$</p>
+            <BsXLg onClick={() => removeFromCart(product.id)} />
           </S.CartRight>
         </S.CartItem>
-      ))}
     </>
   );
 }

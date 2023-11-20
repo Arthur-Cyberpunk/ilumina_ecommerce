@@ -1,5 +1,5 @@
 import { BsXLg } from "react-icons/bs";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Navbar = styled.nav`
   -webkit-box-shadow: 0px 4px 5px -5px rgba(0, 0, 0, 0.23);
@@ -159,4 +159,45 @@ export const HamburguerMenu = styled.div`
       display: flex;
     }
   }
+`;
+
+export const IconCart = styled.i`
+   position: relative;
+   cursor: pointer;
+
+   &::after {
+    content: '';
+    top: -18px;
+    position: absolute;
+    left: 12px;
+    font-size: 11px;
+    background-color: #B6002C;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    text-align: center;
+    display: none;
+  }
+
+  ${({ withItems }) => withItems && css`
+    &::after {
+      content: attr(data-array-length);
+      top: -18px;
+      position: absolute;
+      left: 12px;
+      font-size: 13px;
+      background-color: #B6002C;
+      color: white;
+      padding: 5px;
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      z-index: 999;
+    }
+  `}
 `;
