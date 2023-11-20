@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { BsXLg } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { removeProductToCart } from '../../redux/cart/action';
 import * as S from "./styles";
 
 const CartItem = ({product, id, setTotalPrice}) => {
+    const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(1);
 
   const increase = () => {
@@ -22,18 +25,10 @@ const CartItem = ({product, id, setTotalPrice}) => {
     return quantity * item;
   };
 
-  const [deleteItem, setDeleteItem] = useState(product);
-
   const removeFromCart = (id) => {
-    const updateCart = product.filter((item) => item.id !== id);
-    setDeleteItem(updateCart);
-    const json = JSON.stringify(product.id);
-    localStorage.removeItem("cartItem", json);
+    dispatch(removeProductToCart(id))
   };
 
-//   useEffect(() => {
-//     setCartItem(deleteItem);
-//   }, [deleteItem, setCartItem]);
 
   return (
     <>
@@ -51,7 +46,7 @@ const CartItem = ({product, id, setTotalPrice}) => {
           </S.CartMiddle>
           <S.CartRight className="cart-right">
             <p className="cart-price">{calcPrice(product.quantity, product[0].price)}.00$</p>
-            <BsXLg onClick={() => removeFromCart(product.id)} />
+            <BsXLg onClick={() => removeFromCart(product._id)} />
           </S.CartRight>
         </S.CartItem>
     </>
