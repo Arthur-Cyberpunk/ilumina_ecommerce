@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 export const ProudContainer = styled.div`
@@ -37,7 +37,7 @@ export const RowItem = styled.div`
   }
 `;
 
-export const LinkProduct = styled(NavLink)`
+export const LinkProduct = styled(Link)`
   text-decoration: none;
 `;
 

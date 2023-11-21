@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux";
 import {
-    decreaseProductQuantity,
-    increaseProductQuantity,
-    removeProductToCart,
+  decreaseProductQuantity,
+  increaseProductQuantity,
+  removeProductToCart,
 } from "../../redux/cart/action";
 import * as S from "./styles";
 
-const CartItem = ({ product, id, setTotalPrice }) => {
+const CartItem = ({ product, id }) => {
   const dispatch = useDispatch();
 
   const removeFromCart = (id) => {

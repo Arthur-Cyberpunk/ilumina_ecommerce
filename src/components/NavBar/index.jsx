@@ -3,19 +3,19 @@ import { BsXLg } from "react-icons/bs";
 import { TbList, TbShoppingCart } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Logo from '../../assets/Logo.png';
-import { selectProductsCount } from '../../redux/cart/cart.selectors';
-import CartWithItems from '../CartWithItems';
-import EmptyCart from '../EmptyCart';
+import Logo from "../../assets/Logo.png";
+import { selectProductsCount } from "../../redux/cart/cart.selectors";
+import CartWithItems from "../CartWithItems";
+import EmptyCart from "../EmptyCart";
 import * as S from "./styles";
 
 const NavBar = () => {
-  const {products} = useSelector(rootReducer => rootReducer.cartReducer)
+  const { products } = useSelector((rootReducer) => rootReducer.cartReducer);
   const [sticky, setSticky] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
 
-  const productsCount = useSelector(selectProductsCount)
+  const productsCount = useSelector(selectProductsCount);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -44,24 +44,23 @@ const NavBar = () => {
         <div className="container">
           <S.NavContainer sticky={sticky}>
             <Link to="/">
-              <S.LogoImg
-                onClick={scrollToTop}
-                src={Logo}
-                alt="logo"
-              />
+              <S.LogoImg onClick={scrollToTop} src={Logo} alt="logo" />
             </Link>
             <S.NavLinks>
               <Link onClick={() => window.scrollTo(0, 0)} to="/categories/all">
                 categories
               </Link>
-              <Link onClick={() => window.scrollTo(0, 0)} to="/categories/product/6552a19d28b8c5edc2260688">
+              <Link
+                onClick={() => window.scrollTo(0, 0)}
+                to="/categories/product/6552a19d28b8c5edc2260688"
+              >
                 product page
               </Link>
-              <S.IconCart            
+              <S.IconCart
                 data-array-length={productsCount}
                 onClick={openCart}
                 withItems={productsCount > 0}
-                >
+              >
                 <TbShoppingCart />
               </S.IconCart>
             </S.NavLinks>
@@ -74,27 +73,19 @@ const NavBar = () => {
               >
                 <TbShoppingCart />
               </S.IconCart>
-              <i
-                onClick={() => setMobileNav(!mobileNav)}
-              >
+              <i onClick={() => setMobileNav(!mobileNav)}>
                 <TbList />
               </i>
             </S.HamburguerMenu>
-
           </S.NavContainer>
         </div>
       </S.Navbar>
 
-      <S.PageOverlay
-        onClick={openCart}
-        cart={cart}
-      ></S.PageOverlay>
+      <S.PageOverlay onClick={openCart} cart={cart}></S.PageOverlay>
 
       <S.CartDiv cart={cart}>
         <S.CartTitleBtn>
-          <h2>
-            Your Shopping Cart ({productsCount})
-          </h2>
+          <h2>Your Shopping Cart ({productsCount})</h2>
           <BsXLg onClick={openCart} />
         </S.CartTitleBtn>
 
