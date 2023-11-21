@@ -4,6 +4,7 @@ import { TbList, TbShoppingCart } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Logo from '../../assets/Logo.png';
+import { selectProductsCount } from '../../redux/cart/cart.selectors';
 import CartWithItems from '../CartWithItems';
 import EmptyCart from '../EmptyCart';
 import * as S from "./styles";
@@ -13,6 +14,8 @@ const NavBar = () => {
   const [sticky, setSticky] = useState(false);
   const [mobileNav, setMobileNav] = useState(false);
   const [cart, setCart] = useState(false);
+
+  const productsCount = useSelector(selectProductsCount)
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -55,9 +58,9 @@ const NavBar = () => {
                 product page
               </Link>
               <S.IconCart            
-                data-array-length={products[0]?.quantity}
+                data-array-length={productsCount}
                 onClick={openCart}
-                withItems={products[0]?.quantity > 0}
+                withItems={productsCount > 0}
                 >
                 <TbShoppingCart />
               </S.IconCart>
@@ -65,9 +68,9 @@ const NavBar = () => {
 
             <S.HamburguerMenu>
               <S.IconCart
-                data-array-length={products[0]?.quantity}
+                data-array-length={productsCount}
                 onClick={openCart}
-                withItems={products[0]?.quantity > 0}
+                withItems={productsCount > 0}
               >
                 <TbShoppingCart />
               </S.IconCart>
@@ -90,7 +93,7 @@ const NavBar = () => {
       <S.CartDiv cart={cart}>
         <S.CartTitleBtn>
           <h2>
-            Your Shopping Cart ({products[0]?.quantity})
+            Your Shopping Cart ({productsCount})
           </h2>
           <BsXLg onClick={openCart} />
         </S.CartTitleBtn>

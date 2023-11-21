@@ -1,14 +1,12 @@
+import axios from "axios";
+
 export const fetchProducts = () => {
   return async (dispatch) => {
     try {
-      const response = await fetch(
+      const response = await axios.get(
         "https://iluminaecommercenodejs-production.up.railway.app/furnitures",
       );
-      const data = await response.json();
-      dispatch({
-        type: "SET_DATA",
-        payload: data,
-      });
+      dispatch({ type: "SET_DATA", payload: response.data });
     } catch (error) {
       console.error("Erro ao buscar produtos:", error);
     }

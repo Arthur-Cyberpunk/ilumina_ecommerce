@@ -22,7 +22,6 @@ const CartItem = ({ product, id, setTotalPrice }) => {
   };
 
   const calcPrice = (quantity, item) => {
-    setTotalPrice(quantity * item);
     return quantity * item;
   };
 
@@ -30,10 +29,10 @@ const CartItem = ({ product, id, setTotalPrice }) => {
     <>
       <S.CartItem key={id}>
         <S.CartImg>
-          <img src={product[0].img[0]} alt="product" />
+          <img src={product.img[0]} alt="product" />
         </S.CartImg>
         <S.CartMiddle>
-          <S.CartName>{product[0].name}</S.CartName>
+          <S.CartName>{product.name}</S.CartName>
           <S.CartBtns>
             <button onClick={() => decreaseProduct(product._id)}>-</button>
             <p>{product.quantity}</p>
@@ -42,7 +41,7 @@ const CartItem = ({ product, id, setTotalPrice }) => {
         </S.CartMiddle>
         <S.CartRight>
           <p>
-            {calcPrice(product.quantity, product[0].price)}.00$
+            {calcPrice(product.quantity, product.price)}.00$
           </p>
           <S.IconX onClick={() => removeFromCart(product._id)} />
         </S.CartRight>

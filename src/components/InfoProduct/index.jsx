@@ -9,7 +9,6 @@ const InfoProduct = () => {
   const data = useSelector(rootReducer => rootReducer.productsReducer);
   const dispatch = useDispatch()
   const [notify, setNotify] = useState(false);
-  const [quantity, setQuantity] = useState(1);
   const [image, setImage] = useState('');
 
   useFetchData()

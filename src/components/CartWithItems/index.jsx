@@ -1,13 +1,13 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { selectProductsTotalPrice } from "../../redux/cart/cart.selectors";
 import CartItem from '../CartItem';
 import * as S from "./styles";
 
 function CartWithItems() {
   const {products} = useSelector(rootReducer => rootReducer.cartReducer)
 
-  const [totalPrice, setTotalPrice] = useState(0);
+  const productsTotalPrice = useSelector(selectProductsTotalPrice)
 
   return (
     <>
@@ -15,7 +15,7 @@ function CartWithItems() {
         <S.FullCart>
           {products.map((product, id) =>
             products.length !== 0 ? (
-              <CartItem product={product} id={id} setTotalPrice={setTotalPrice}/>
+              <CartItem product={product} id={id}/>
             ) : (
               <></>
             ),
@@ -25,7 +25,7 @@ function CartWithItems() {
       <S.Subtotal>
         <S.SubRight>
           <p>Subtotal</p>
-          <p>{totalPrice + ".00$"}</p>
+          <p>{productsTotalPrice + ".00$"}</p>
         </S.SubRight>
         <S.SubLeft>
           <Link>Go to Checkout</Link>
