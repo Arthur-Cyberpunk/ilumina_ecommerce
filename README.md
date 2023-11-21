@@ -2,7 +2,7 @@
 
 <h2>About the project</h2>
 
-  <p<b>Ilumina Ecommerce</b> look and buy furnitures for your house.</p>
+  <p><b>Ilumina Ecommerce</b> look and buy furnitures for your house.</p>
 
 👉 Live Demo: <a href='https://ilumina-ecommerce.vercel.app/'>Live Demo</a>
 
