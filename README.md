@@ -12,6 +12,7 @@
 » Styled Components <br>
 » Redux <br>
 » NodeJs <br>
+» AWS <br>
 » Fetch API
 
 <h2>Screenshots of the Project 📸</h2>
