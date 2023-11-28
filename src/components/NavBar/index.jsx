@@ -11,11 +11,10 @@ import * as S from "./styles";
 
 const NavBar = () => {
   const { products } = useSelector((rootReducer) => rootReducer.cartReducer);
-  const [sticky, setSticky] = useState(false);
-  const [mobileNav, setMobileNav] = useState(false);
-  const [cart, setCart] = useState(false);
-
   const productsCount = useSelector(selectProductsCount);
+  const [sticky, setSticky] = useState(false);
+  const [mobile, setMobile] = useState(false);
+  const [cart, setCart] = useState(false);
 
   const handleScroll = () => {
     if (window.scrollY > 10) {
@@ -42,7 +41,7 @@ const NavBar = () => {
     <>
       <S.Navbar>
         <div className="container">
-          <S.NavContainer sticky={sticky}>
+          <S.NavContainer sticky={sticky? true : undefined}>
             <Link to="/">
               <S.LogoImg onClick={scrollToTop} src={Logo} alt="logo" />
             </Link>
@@ -59,7 +58,7 @@ const NavBar = () => {
               <S.IconCart
                 data-array-length={productsCount}
                 onClick={openCart}
-                withItems={productsCount > 0}
+                withItems={productsCount? true : undefined}
               >
                 <TbShoppingCart />
               </S.IconCart>
@@ -69,11 +68,11 @@ const NavBar = () => {
               <S.IconCart
                 data-array-length={productsCount}
                 onClick={openCart}
-                withItems={productsCount > 0}
+                withItems={productsCount? true : undefined}
               >
                 <TbShoppingCart />
               </S.IconCart>
-              <i onClick={() => setMobileNav(!mobileNav)}>
+              <i onClick={() => setMobile(!mobile)}>
                 <TbList />
               </i>
             </S.HamburguerMenu>
@@ -81,9 +80,9 @@ const NavBar = () => {
         </div>
       </S.Navbar>
 
-      <S.PageOverlay onClick={openCart} cart={cart}></S.PageOverlay>
+      <S.PageOverlay onClick={openCart} cart={cart? true : undefined}></S.PageOverlay>
 
-      <S.CartDiv cart={cart}>
+      <S.CartDiv cart={cart? true : undefined}>
         <S.CartTitleBtn>
           <h2>Your Shopping Cart ({productsCount})</h2>
           <BsXLg onClick={openCart} />
@@ -98,14 +97,14 @@ const NavBar = () => {
         </S.CartBody>
       </S.CartDiv>
 
-      <S.NavMobile mobileNav={mobileNav}>
-        <S.IconX onClick={() => setMobileNav(!mobileNav)} />
+      <S.NavMobile mobile={mobile ? true : undefined}>
+        <S.IconX onClick={() => setMobile(!mobile)} />
         <S.MobileLinks>
-          <Link onClick={() => setMobileNav(!mobileNav)} to="/categories/all">
+          <Link onClick={() => setMobile(!mobile)} to="/categories/all">
             categories
           </Link>
           <Link
-            onClick={() => setMobileNav(!mobileNav)}
+            onClick={() => setMobile(!mobile)}
             to="/categories/product/6552a19d28b8c5edc2260688"
           >
             product page

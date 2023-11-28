@@ -113,7 +113,7 @@ export const NavMobile = styled.nav`
   left: 0;
   width: 100%;
   height: 100%;
-  display: ${(props) => (props.mobileNav ? "flex" : "none")};
+  display: ${({ mobile }) => (mobile ? "flex" : "none")};
 `;
 
 export const IconX = styled(BsXLg)`
